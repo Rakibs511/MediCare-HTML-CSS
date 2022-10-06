@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./signup.css";
-import Logo from '../assets/logo.svg'
+import "../signUpPage/signup.css";
+import Logo from "../../assets/logo.svg";
 
 const SignUp = () => {
   return (

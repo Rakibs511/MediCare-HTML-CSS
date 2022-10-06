@@ -1,11 +1,11 @@
-import Home from "./Home";
-import NotFound from "./NotFound";
-import SignIn from "./SignIn";
-import SignUp from "./SignUp";
-
+import Home from "./homePage/Home"
+import SignIn from "./signInPage/SignIn"
+import SignUp from "./signUpPage/SignUp"
+import NotFound from "./NotFound"
 export{
     NotFound,
     SignUp,
     SignIn,
     Home,
+
 }
