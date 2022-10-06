@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../signUpPage/signup.css";
 import Logo from "../../assets/logo.svg";
 
 const SignUp = () => {
