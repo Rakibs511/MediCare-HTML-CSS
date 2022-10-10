@@ -2,11 +2,13 @@
   "name": "medicare-html-css",
   "version": "0.1.0",
   "private": true,
+  "proxy":"http://localhost:4000",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-query": "^3.39.2",
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",

@@ -8,7 +8,6 @@ body {
 }
 
 .form {
-    background-color: #999;
   flex-direction: column;
   height: 100vh;
   display: flex;
@@ -49,7 +48,7 @@ body {
   box-shadow: 1px 2px 10px rgb(200, 200, 200);
 }
 
-button {
+.signup-btn {
   color: rgb(255, 255, 255);
   width: 100%;
   padding: 10px;
@@ -80,4 +79,9 @@ button {
   .signup-btn {
     margin-top: 100px;
   }
+}
+
+.error{
+    color: rgb(255, 0, 0); 
+    border-radius: 50px;
 }
