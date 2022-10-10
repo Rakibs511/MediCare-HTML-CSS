@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Home, SignIn, SignUp } from "./pages";
+import { Home, NotFound, SignIn, SignUp } from "./pages";
 import Protected from "./pages/Protected";
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
           <Route path="/signin" exact element={<SignIn />} />
           <Route path="/signup" exact element={<SignUp />} />
 
-          <Route path="/signup" exact element={<SignUp />} />
+          <Route path="*" exact element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>
