@@ -1,0 +1,8 @@
+.rootDiv {
+  background-color: rgb(243, 243, 255);
+  height: 200px;
+  border-radius: 30px;
+  box-shadow: 1px 2px 10px rgb(213, 213, 213);
+  margin-right: 20px;
+  margin-bottom: 20px;
+}

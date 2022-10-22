@@ -1,0 +1,29 @@
+.sideBar {
+  position: fixed;
+  z-index: 0;
+  height: 100%;
+  width: 220px;
+  background-color: rgb(243, 243, 255);
+  overflow: auto;
+  box-shadow: 2px 0px 10px rgb(201, 201, 201);
+}
+
+.pl10 {
+  padding-left: 10px;
+  padding-top: 70px;
+  padding-bottom: 10px;
+}
+
+/* mobile */
+@media only screen and (max-width: 600px) {
+  .sideBar {
+    display: none;
+  }
+}
+
+/* tablet */
+@media screen and (max-width: 1200px) {
+  .sideBar {
+    display: none;
+  }
+}

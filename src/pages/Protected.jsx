@@ -6,9 +6,8 @@ const Protected = (props) => {
   const navigate = useNavigate();
   useEffect(() => {
     const authorization = localStorage.getItem("authorization");
-    if (!authorization) {
-      navigate("/signup");
-    }
+    if (!authorization) navigate("/signup");
+    //else navigate("/home");
   });
   return <Pages />;
 };

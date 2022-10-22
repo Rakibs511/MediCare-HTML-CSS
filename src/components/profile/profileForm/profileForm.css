@@ -1,0 +1,61 @@
+.picture {
+  margin-top: 10px;
+  height: 130px;
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
+.uploadButton {
+  cursor: pointer;
+  margin-top: 75px;
+  margin-left: 13px;
+  position: absolute;
+  z-index: 2;
+  width: 100px;
+  opacity: 0%;
+}
+
+.profileImg {
+  position: relative;
+  border-radius: 100%;
+  width: 130px;
+  height: 130px;
+}
+.text {
+  cursor: pointer;
+  opacity: 70%;
+  position: absolute;
+  z-index: 1;
+  margin-top: 85px;
+  margin-left: 20px;
+  width: 90px;
+  height: 45px;
+  border-top-right-radius: 30%;
+  border-top-left-radius: 30%;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  background-color: orange;
+}
+.textMain {
+  cursor: pointer;
+
+  margin-left: 20px;
+  color: aliceblue;
+  font-weight: bold;
+}
+.form {
+  position: absolute;
+  display: flex;
+  width: 300px;
+  margin-left: 125px;
+}
+
+@media only screen and (max-width: 600px) {
+  .picture {
+    margin-left: 32%;
+  }
+  .form {
+    width: 90%;
+    margin-left: 15px;
+  }
+}

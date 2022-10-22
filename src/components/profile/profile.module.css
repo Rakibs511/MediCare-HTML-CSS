@@ -1,0 +1,47 @@
+.rootDiv {
+  margin-top: 55px;
+  opacity: 50%;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  z-index: 1;
+}
+.profile {
+  position: fixed;
+  background-color: #F3F3FF;
+  right: 0;
+  z-index: 1;
+  width: 530px;
+  height: 600px;
+  margin-top: 70px;
+  margin-right: 20px;
+  box-shadow: 2px 2px 10px rgb(134, 133, 133);
+  border-radius: 15px;
+}
+.editIcon{
+    cursor: pointer;
+    margin: 10px;
+    width: 30px;
+    z-index: 3;
+    position: absolute;
+}
+.editIcon:hover{
+    width: 32px;
+}
+
+@media only screen and (max-width: 600px) {
+  .profile {
+    width: 90%;
+    height: 84%;
+  }
+  .rootDiv{
+    margin-top: 0px;
+  }
+  .editIcon{
+    margin: 10px;
+    width: 30px;
+    z-index: 3;
+    position: absolute;
+}
+}

@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo.svg";
 import {
-//   setIsloading,
   setPassword,
   setPhoneNumber,
   setPhoneError,
@@ -37,7 +36,7 @@ const SignUp = () => {
       dispatch(setPhoneError(null));
       dispatch(setPasswordError(null));
       if (passwordError === null && phoneError === null) {
-        const info= axios({
+         axios({
           method: "post",
           url: "http://localhost:4000/api/v1/signup",
           data: {
@@ -47,7 +46,6 @@ const SignUp = () => {
         }).then(()=>{
             console.log("Sign Up Success!");
         });
-        console.log(info.data.message);
           console.log({
               phoneNumber,
               password,
