@@ -1,7 +1,10 @@
 import React from "react";
 import navBarCss from "./navbar.module.css";
 import { useDispatch } from "react-redux";
-import { setProfileToggle } from "../profile/profileSlice";
+import {
+  setPostToggle,
+  setProfileToggle,
+} from "../profile/profileSlice";
 import logo from "../../assets/logo_small.svg";
 import profileIcon from "../../assets/icons/profile.svg";
 import postIcon from "../../assets/icons/post.svg";
@@ -22,9 +25,16 @@ const NavBar = () => {
         src={profileIcon}
         alt="Profile"
         className={navBarCss.profileIcon}
-        onClick={()=>dispatch(setProfileToggle())}
+        onClick={() => dispatch(setProfileToggle())}
       />
-      <img src={postIcon} alt="Post" className={navBarCss.postIcon} />
+      <img
+        src={postIcon}
+        alt="Post"
+        className={navBarCss.postIcon}
+        onClick={() => {
+          dispatch(setPostToggle());
+        }}
+      />
     </div>
   );
 };

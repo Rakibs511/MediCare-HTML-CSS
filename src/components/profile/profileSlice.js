@@ -1,21 +1,27 @@
-import {createSlice} from '@reduxjs/toolkit';
-const initialState={
-    profileToggle:false,
-    userId:""
-}
+import { createSlice } from "@reduxjs/toolkit";
+const initialState = {
+  profileToggle: false,
+  postToggle: false,
+  userId: "",
+};
 
 export const profileSlice = createSlice({
-    name:'profile',
-    initialState,
-    reducers:{
-        setProfileToggle:(state)=>{
-            state.profileToggle=!state.profileToggle;
-        },
-        setUserID:(state,action)=>{
-            state.userId=action.payload
-        }
-    }
-})
+  name: "profile",
+  initialState,
+  reducers: {
+    setProfileToggle: (state) => {
+      state.profileToggle = !state.profileToggle;
+    },
+    setPostToggle: (state) => {
+      state.postToggle = !state.postToggle;
+    },
 
-export const {setProfileToggle,setUserID} =profileSlice.actions;
+    setUserID: (state, action) => {
+      state.userId = action.payload;
+    },
+  },
+});
+
+export const { setProfileToggle, setPostToggle, setUserID } =
+  profileSlice.actions;
 export default profileSlice.reducer;

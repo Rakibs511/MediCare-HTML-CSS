@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import profileCss from "./profile.module.css";
 import { useDispatch } from "react-redux";
-import { setProfileToggle } from "../profile/profileSlice";
+import { setProfileToggle} from "../profile/profileSlice";
 import ProfileForm from "./profileForm/ProfileForm";
 import ProfileData from "./profileData/ProfileData";
 import editIcon from "../../assets/icons/edit.svg";

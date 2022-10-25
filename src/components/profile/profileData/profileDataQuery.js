@@ -20,5 +20,5 @@ export const useProfileData = () =>
   useQuery("profileData", url, {
     // refetchOnMount: false,
     // refetchOnWindowFocus: false,
-    // refetchIntervalInBackground: true,
+    refetchIntervalInBackground: true,
   });

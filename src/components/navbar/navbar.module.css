@@ -21,6 +21,7 @@
 
 .postIcon:hover {
   width: 27px;
+  cursor: pointer;
 }
 
 .profileIcon {
@@ -35,11 +36,15 @@
 
 .profileIcon:hover {
   width: 27px;
+  cursor: pointer;
 }
 
 .logo {
   margin-top: 6px;
   margin-left: 10px;
+}
+.logo:hover{
+    cursor: pointer;
 }
 
 .search {
@@ -59,6 +64,7 @@
 }
 
 .searchButton:hover {
+    cursor: pointer;
   background-color: #d1d1fc;
 }
 
