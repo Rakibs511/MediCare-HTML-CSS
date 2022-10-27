@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.svg";
+import dev from "../../config/configer";
 import "../signInPage/signin.css";
 
 const SignIn = () => {
@@ -35,7 +36,7 @@ const SignIn = () => {
     if (passwordError === null && phoneError === null) {
       axios({
         method: "post",
-        url: "http://localhost:4000/api/v1/signin",
+        url: `${dev.backendUrl}/api/v1/signin`,
         data: {
           phone: `+88${phoneNumber}`,
           password: password,

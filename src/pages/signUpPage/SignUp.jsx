@@ -3,6 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo.svg";
+import dev from "../../config/configer";
 import {
   setPassword,
   setPhoneNumber,
@@ -38,7 +39,7 @@ const SignUp = () => {
       if (passwordError === null && phoneError === null) {
          axios({
           method: "post",
-          url: "http://localhost:4000/api/v1/signup",
+          url: `${dev.backendUrl}/api/v1/signup`,
           data: {
             phone: `+88${phoneNumber}`,
             password:password,

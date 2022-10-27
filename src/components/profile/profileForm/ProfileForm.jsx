@@ -6,6 +6,7 @@ import "./profileForm.css";
 import { useProfileData } from "../profileData/profileDataQuery";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
+import dev from "../../../config/configer";
 
 const ProfileForm = () => {
   const uploader = Uploader({
@@ -35,7 +36,7 @@ const ProfileForm = () => {
   const updateHandle = () => {
     axios({
       method: "patch",
-      url: `http://localhost:4000/api/v1/user/${token.id}`,
+      url: `${dev.backendUrl}/api/v1/user/${token.id}`,
       headers: { authorization: localStorage.getItem("authorization") },
       data: {
         profilePicture: proFilePicture!=null ? proFilePicture : data.data.profilePicture,
@@ -93,7 +94,7 @@ const ProfileForm = () => {
           className="profileImg"
         />
       </div>
-      <div className="form" style={{ height: "300px", marginTop: "50px" }}>
+      <div className="dataForm" style={{ height: "300px", marginTop: "50px" }}>
         <div style={{ width: "100%" }}>
           <label>User Name</label>
         </div>
@@ -101,7 +102,7 @@ const ProfileForm = () => {
           type="text"
           placeholder="User Name"
           defaultValue={data.data.userName != null ? data.data.userName : ""}
-          className="input-box"
+          className="form-input-box"
           onChange={(e) => setuserName(e.target.value)}
         />
         <div style={{ width: "100%" }}>
@@ -111,7 +112,7 @@ const ProfileForm = () => {
           type="text"
           placeholder="Enter your Full Name"
           defaultValue={data.data.name != null ? data.data.name : ""}
-          className="input-box"
+          className="form-input-box"
           onChange={(e) => setfullName(e.target.value)}
         />
         <div style={{ width: "100%" }}>
@@ -121,15 +122,16 @@ const ProfileForm = () => {
           type="email"
           placeholder="Enter your E-mail"
           defaultValue={data.data.email != null ? data.data.email : ""}
-          className="input-box"
+          className="form-input-box"
           onChange={(e) => setemail(e.target.value)}
         />
         <div style={{ width: "100%" }}>
           <label>Date of Birth</label>
+          <br />
           <input
             type="date"
             defaultValue={data.data.age != null ? data.data.dateOfBirth : ""}
-            className="input-box"
+            className="form-input-box"
             style={{ marginBottom: "30px" }}
             onChange={(e) => setdob(e.target.value)}
           />

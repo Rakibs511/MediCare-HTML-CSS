@@ -2,7 +2,7 @@
 ### Author : MD.Rakibul Hasan
 
 
-The project "Medicare Application" is developed in JavaScript Language using React library. Which mainly focuses on basic operations of an institute's student information system. Like Inserting, Deleting, Editing student’s information. Using this application, a user can get every information about students at an Institute
+The project "Medicare Application" is developed in JavaScript Language using React library with MERN Stack Technology. Which mainly focuses on basic operations of an Online pharmacy system. Like Get information about any Medicines. Using this application, a user can get all the information about any Medicines.
 
 ## Features
 
@@ -12,9 +12,9 @@ The project "Medicare Application" is developed in JavaScript Language using Rea
 - User can Serch any Medicine and see that medicine details.
 
 ## OBJECTIVES
-> It provides "better and efficient" service.
-> Reduce the workload of an User. 
-> Faster way to get information about the Medicine. 
+> It provides "better and efficient" service
+> Reduce the workload of an User
+> Faster way to get information about the Medicine
 
 ## Technologies Used
 

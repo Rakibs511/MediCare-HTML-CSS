@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useQuery } from "react-query";
 import jwt_decode from "jwt-decode";
+import dev from "../../../config/configer";
 
 const jwtToken =
   localStorage.getItem("authorization") != null &&
@@ -11,7 +12,7 @@ const token =
 export const url = () => {
   return axios({
     method: "get",
-    url: `http://localhost:4000/api/v1/user/${token.id}`,
+    url: `${dev.backendUrl}/api/v1/user/${token.id}`,
     headers: { authorization: localStorage.getItem("authorization") },
   });
 };

@@ -1,7 +1,6 @@
-import React,{Suspense} from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Home, NotFound, SignIn, SignUp } from "./pages";
-import Protected from "./pages/Protected";
+import { Home, NotFound, SignIn, SignUp, Protected } from "./pages";
 
 const App = () => {
   return (

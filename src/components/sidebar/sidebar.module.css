@@ -1,11 +1,12 @@
 .sideBar {
   position: fixed;
-  z-index: 0;
+  z-index: 1;
   height: 100%;
   width: 220px;
   background-color: rgb(243, 243, 255);
   overflow: auto;
   box-shadow: 2px 0px 10px rgb(201, 201, 201);
+  overflow: hidden;
 }
 
 .pl10 {
@@ -13,6 +14,26 @@
   padding-top: 70px;
   padding-bottom: 10px;
 }
+
+.createPostButton{
+    width: 200px;
+    height: 40px;
+    margin-bottom: 10px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    background-color: #4d4d4da5;
+    cursor: pointer;
+    transition: .2s;
+}
+.createPostButton:hover{
+    border-radius: 0px;
+    transform: scale(1.1);
+    background-color: orange;
+}
+
 
 /* mobile */
 @media only screen and (max-width: 600px) {

@@ -17,40 +17,51 @@ const ProfileData = () => {
     <div>
       <div className="picture">
         <img
-          src={data.data.profilePicture!=null?data.data.profilePicture:emptyProfile}
+          src={
+            data.data.profilePicture !== ""
+              ? data.data.profilePicture
+              : emptyProfile
+          }
           alt="preview"
           className="profileImg"
         />
       </div>
-      <div className="form" style={{ height: "300px", marginTop: "50px" }}>
-        <div style={{ width: "100%" }}>
+      <div className="dataForm">
+        <div>
           <label>User Name</label>
         </div>
-        <p className="input-box">
+        <p className="form-input-box">
           {data.data.userName != null ? data.data.userName : "Empty"}
         </p>
-        <div style={{ width: "100%" }}>
+        <div>
           <label>Full Name</label>
         </div>
-        <p className="input-box">
-          {" "}
+        <p
+          className="form-input-box"
+          style={{
+            // fontWeight: "bold",
+            // backgroundColor: "#D1D0E0",
+            // fontSize: "20px",
+            // boxShadow: "1px 1px 10px #0000001d",
+          }}
+        >
           {data.data.name != null ? data.data.name : "Empty"}
         </p>
-        <div style={{ width: "100%" }}>
+        <div>
           <label>Number</label>
         </div>
-        <p className="input-box">
+        <p className="form-input-box">
           {data.data.phone != null ? data.data.phone : "Empty"}
         </p>
-        <div style={{ width: "100%" }}>
+        <div>
           <label>E-mail Address</label>
         </div>
-        <p className="input-box">
+        <p className="form-input-box">
           {data.data.email != null ? data.data.email : "Empty"}
         </p>
-        <div style={{ width: "100%" }}>
+        <div>
           <label>Date of Birth</label>
-          <p className="input-box">
+          <p className="form-input-box">
             {data.data.dateOfBirth != null ? data.data.dateOfBirth : "Empty"}
           </p>
         </div>

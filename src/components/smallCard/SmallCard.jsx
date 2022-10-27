@@ -9,7 +9,7 @@ const SmallCard = (props) => {
         src={props.img}
         alt="Medicine"
       />
-        <div className={smallcardCss.medName}>{props.name}</div>
+    <div className={smallcardCss.medName}>{props.name}</div>
     </div>
   );
 }

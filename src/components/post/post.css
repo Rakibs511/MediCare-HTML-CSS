@@ -1,9 +1,9 @@
 .hide_div{
     position: absolute;
-    z-index: 1;
+    z-index: 20;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.235);
+    background-color: #3934783c;
 }
 
 .post_root_div{
@@ -11,7 +11,7 @@
     right: 0;
     margin-right: 20px;
     width: 600px;
-    z-index: 1;
+    z-index: 21;
     margin-top: 75px;
     background-color: aqua;
 }
