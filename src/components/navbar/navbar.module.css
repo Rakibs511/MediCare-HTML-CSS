@@ -60,10 +60,10 @@
   transform: scale(1.2);
   cursor: pointer;
 }
-@media only screen and (min-width: 1200px){
-    .sideBarIcon{
-        display: none;
-    }
+@media only screen and (min-width: 1200px) {
+  .sideBarIcon {
+    display: none;
+  }
 }
 /* mobile */
 @media only screen and (max-width: 1200px) {
@@ -73,7 +73,21 @@
 }
 
 .search {
+    position: relative;
   width: 600px;
+}
+.filterIcon {
+  position: absolute;
+  z-index: 50;
+  right: 0;
+  fill: red;
+  width: 20px;
+  margin-top: 15px;
+  margin-right: 175px;
+  transition: .2s;
+}
+.filterIcon:hover{
+    transform: scale(1.2);
 }
 
 /* .searchButton {
@@ -92,6 +106,7 @@
     cursor: pointer;
   background-color: #d1d1fc;
 } */
+
 
 .searchBox {
   font-size: 17px;
@@ -143,6 +158,10 @@
   .search {
     width: 300px;
   }
+  .filterIcon {
+  margin-top: 17px;
+  margin-right: 12%;
+}
 
   .searchBox {
     font-size: 17px;

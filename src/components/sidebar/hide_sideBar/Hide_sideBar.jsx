@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { setMyPostToggle } from "../../myPost/myPostSlice";
 import { setSideBar } from "../../navbar/navBarSlice";
 import { setPostToggle, setProfileToggle } from "../../profile/profileSlice";
 import Hide_sideBarCss from "./hide_sideBar.module.css";
@@ -32,7 +33,9 @@ const Hide_sideBar = () => {
           >
             Create Post
           </button>
-          <button className={Hide_sideBarCss.createPostButton}>My Post</button>
+          <button className={Hide_sideBarCss.createPostButton} onClick={()=>{
+            dispatch(setMyPostToggle())
+          }}>My Post</button>
           <button
             className={Hide_sideBarCss.signOutButton}
             onClick={onclickHandle}

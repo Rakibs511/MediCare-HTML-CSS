@@ -16,7 +16,7 @@
   margin-top: 75px;
   margin-left: 13px;
   position: absolute;
-  z-index: 3;
+  z-index: 5;
   width: 100px;
   opacity: 0%;
 }
@@ -52,7 +52,7 @@
   cursor: pointer;
   opacity: 70%;
   position: absolute;
-  z-index: 3;
+  z-index: 4;
   margin-top: 90px;
   margin-left: 22px;
   width: 90px;
@@ -64,8 +64,6 @@
   background-color: orange;
 }
 .textMain {
-  cursor: pointer;
-
   margin-left: 20px;
   color: aliceblue;
   font-weight: bold;

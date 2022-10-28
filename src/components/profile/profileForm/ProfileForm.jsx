@@ -7,6 +7,7 @@ import { useProfileData } from "../profileData/profileDataQuery";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import dev from "../../../config/configer";
+import { toast, ToastContainer } from "react-toastify";
 
 const ProfileForm = () => {
   const uploader = Uploader({
@@ -39,25 +40,41 @@ const ProfileForm = () => {
       url: `${dev.backendUrl}/api/v1/user/${token.id}`,
       headers: { authorization: localStorage.getItem("authorization") },
       data: {
-        profilePicture: proFilePicture!=null ? proFilePicture : data.data.profilePicture,
+        profilePicture:
+          proFilePicture != null ? proFilePicture : data.data.profilePicture,
         userName: userName != null ? userName : data.data.userName,
         name: fullName != null ? fullName : data.data.name,
         email: email != null ? email : data.data.email,
         dob: dob != null ? dob : data.data.dateOfBirth,
         phone: data.data.phone,
       },
-    });
-    console.log({
-      proFilePicture,
-      userName,
-      fullName,
-      email,
-      dob,
-    });
+    })
+      .then(() => {
+        toast.success("✔ Updated!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        console.log("Updated!");
+        // console.log({
+        //   proFilePicture,
+        //   userName,
+        //   fullName,
+        //   email,
+        //   dob,
+        // });
+      })
+      .catch((error) => console.log("Error Update"));
   };
 
   return (
     <div>
+      <ToastContainer />
       <div className="picture">
         <div className="uploadButton">
           <UploadButton

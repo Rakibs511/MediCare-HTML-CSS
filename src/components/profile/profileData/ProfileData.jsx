@@ -18,9 +18,8 @@ const ProfileData = () => {
       <div className="picture">
         <img
           src={
-            data.data.profilePicture !== ""
-              ? data.data.profilePicture
-              : emptyProfile
+            data.data.profilePicture?
+            data.data.profilePicture : emptyProfile
           }
           alt="preview"
           className="profileImg"
@@ -38,12 +37,14 @@ const ProfileData = () => {
         </div>
         <p
           className="form-input-box"
-          style={{
-            // fontWeight: "bold",
-            // backgroundColor: "#D1D0E0",
-            // fontSize: "20px",
-            // boxShadow: "1px 1px 10px #0000001d",
-          }}
+          style={
+            {
+              // fontWeight: "bold",
+              // backgroundColor: "#D1D0E0",
+              // fontSize: "20px",
+              // boxShadow: "1px 1px 10px #0000001d",
+            }
+          }
         >
           {data.data.name != null ? data.data.name : "Empty"}
         </p>

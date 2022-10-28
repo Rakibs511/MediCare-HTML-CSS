@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { setMyPostToggle } from "../myPost/myPostSlice";
 import { setPostToggle, setProfileToggle } from "../profile/profileSlice";
 import sideBarCss from "./sidebar.module.css";
 const SideBar = () => {
@@ -25,7 +26,8 @@ const SideBar = () => {
         >
           Create Post
         </button>
-        <button className={sideBarCss.createPostButton}>My Post</button>
+        <button className={sideBarCss.createPostButton} onClick={()=>{
+            dispatch(setMyPostToggle())}}>My Post</button>
         <button
           className={sideBarCss.createPostButton}
           style={{marginTop:'450px'}}

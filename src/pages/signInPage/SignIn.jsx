@@ -1,9 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Logo from "../../assets/logo.svg";
 import dev from "../../config/configer";
 import "../signInPage/signin.css";
+
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -41,20 +44,35 @@ const SignIn = () => {
           phone: `+88${phoneNumber}`,
           password: password,
         },
-      }).then((res) => {
-        localStorage.setItem("authorization", `Berar ${res.data.token}`);
-        console.log(res.data.message);
-        // console.log(res.data);
-        if (res.data.success === true) {
-          navigate("/home");
-        }
-      });
+      })
+        .then((res) => {
+          localStorage.setItem("authorization", `Berar ${res.data.token}`);
+          // console.log(res.data.message);
+          // console.log(res.data);
+          if (res.data.success === true) {
+            navigate("/home");
+          }
+        })
+        .catch((error) => {
+          toast.error("❌Invalid Phone Number And Password!", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          //console.log("Check your number and password");
+        });
     }
   };
   //==============================
 
   return (
     <div className="form">
+      <ToastContainer/>
       <img src={Logo} alt="MediCare" />
       <div className="sign-up-form">
         <h1> Sign in </h1>

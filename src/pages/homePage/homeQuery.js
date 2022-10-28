@@ -10,4 +10,13 @@ export const url = () => {
   });
 };
 
+export const url_All_Users= ()=>{
+    return axios({
+        method:'get',
+        url: `${dev.backendUrl}/api/v1/allUser`,
+        headers: { authorization: localStorage.getItem("authorization") },
+    })
+}
+
 export const useGetMedicines = () => useQuery('medicines',url);
+

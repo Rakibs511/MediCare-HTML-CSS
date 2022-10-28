@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   searchValue: null,
-  sideBar:false
+  sideBar:false,
+  searchFilterToggle:true,
 };
 
 export const navBarSlice = createSlice({
@@ -14,8 +15,11 @@ export const navBarSlice = createSlice({
     },
     setSideBar:(state)=>{
         state.sideBar=!state.sideBar
+    },
+    setSearchFilterToggle:(state)=>{
+        state.searchFilterToggle=!state.searchFilterToggle
     }
   },
 });
-export const {setSearchValue,setSideBar} = navBarSlice.actions;
+export const {setSearchValue,setSideBar,setSearchFilterToggle} = navBarSlice.actions;
 export default navBarSlice.reducer;

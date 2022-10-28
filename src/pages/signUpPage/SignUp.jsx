@@ -1,7 +1,8 @@
 import axios from "axios";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import Logo from "../../assets/logo.svg";
 import dev from "../../config/configer";
 import {
@@ -10,8 +11,8 @@ import {
   setPhoneError,
   setPasswordError,
 } from "./signUpSlice";
-
 const SignUp = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const phoneNumber = useSelector((state) => state.signUpSlice.phoneNumber);
   const password = useSelector((state) => state.signUpSlice.password);
@@ -25,46 +26,68 @@ const SignUp = () => {
     } else if (phoneNumber.length < 9) {
       dispatch(setPhoneError("Phone Number Must be More Than 8 Characters!"));
       dispatch(setPasswordError(null));
-
     } else if (!password) {
       dispatch(setPasswordError("Password can't be empty!"));
       dispatch(setPhoneError(null));
-      
     } else if (password.length < 6) {
-        dispatch(setPasswordError("Password Must be More Than 5 Characters!"));
-        dispatch(setPhoneError(null));
+      dispatch(setPasswordError("Password Must be More Than 5 Characters!"));
+      dispatch(setPhoneError(null));
     } else {
       dispatch(setPhoneError(null));
       dispatch(setPasswordError(null));
       if (passwordError === null && phoneError === null) {
-         axios({
+        axios({
           method: "post",
           url: `${dev.backendUrl}/api/v1/signup`,
           data: {
             phone: `+88${phoneNumber}`,
-            password:password,
+            password: password,
           },
-        }).then(()=>{
-            console.log("Sign Up Success!");
-        });
-          console.log({
-              phoneNumber,
-              password,
-              phoneError,
-              passwordError,
-              test: "signUp",
+        })
+          .then( async () => {
+            await toast.success("✔Sign Up Successful", {
+              position: "top-center",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
             });
-        }
+            navigate("/signin");
+          })
+          .catch((error) => {
+            toast.error("❌Invalid Phone Number And Password!", {
+              position: "top-center",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
+            //console.log("Check your number and password");
+          });
+        //   console.log({
+        //       phoneNumber,
+        //       password,
+        //       phoneError,
+        //       passwordError,
+        //       test: "signUp",
+        //     });
+      }
     }
-};
+  };
 
-
-const onSubmitHandle = (e) => {
+  const onSubmitHandle = (e) => {
     e.preventDefault();
     errorHandleSignUpForm();
   };
   return (
     <div className="form">
+      <ToastContainer />
       <img src={Logo} alt="MediCare" />
 
       <div className="sign-up-form">
@@ -89,12 +112,10 @@ const onSubmitHandle = (e) => {
             }}
           />
           <div className="error">{passwordError}</div>
-          
-            <input type="checkbox" required/>
-            <span>
-            agree to the terms of services
-            </span>
-        
+
+          <input type="checkbox" required />
+          <span>agree to the terms of services</span>
+
           <button type="button" className="signup-btn" onClick={onSubmitHandle}>
             Submit
           </button>
