@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import navBarCss from "./navbar.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setPostToggle, setProfileToggle } from "../profile/profileSlice";
@@ -13,11 +13,15 @@ import {
   setSearchValue,
   setSideBar,
 } from "./navBarSlice";
+
+//Todo:----------> Start Functional Component <-----------------
 const NavBar = () => {
   const dispatch = useDispatch();
   const searchFilterToggle = useSelector(
     (state) => state.navBarSlice.searchFilterToggle
   );
+
+  const searchBoxRef=useRef(null);
   return (
     <div className={navBarCss.navBar}>
       <img src={logo} alt="MediCare" className={navBarCss.logo} />
@@ -32,12 +36,13 @@ const NavBar = () => {
           src={searchFilterToggle ? medicineIcon : profileIcon_blue}
           alt="Medicines"
           className={navBarCss.filterIcon}
-          onClick={() => dispatch(setSearchFilterToggle())}
+          onClick={() => {dispatch(setSearchFilterToggle()); searchBoxRef.current.focus();}}
         />
         <input
           type="text"
           placeholder={searchFilterToggle?"Search Medicines":"Search People"}
           className={navBarCss.searchBox}
+          ref={searchBoxRef}
           onChange={(e) => dispatch(setSearchValue(e.target.value))}
         />
         {/* <button className={navBarCss.searchButton}>Search</button> */}

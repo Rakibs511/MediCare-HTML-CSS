@@ -1,16 +1,19 @@
 .crossIcon{
     position: absolute;
-    background-color: #F3F3FF;
+    background-color: #393478;
     margin: 10px;
     border-radius: 30px;
-    padding: 7px;
-    width: 25px;
+    padding: 5px;
+    width: 20px;
     right: 0;
     z-index: 34;
     transition: .2s;
+    cursor: pointer;
+    user-select: none;
 }
 .crossIcon:hover{
     transform: scale(1.2);
+    box-shadow: 2px 2px 10px rgb(168, 167, 167);
 }
 .rootDiv{
     position: fixed;
@@ -41,6 +44,8 @@
     font-weight: bold;
     text-align: center;
     color: #393478;
+    cursor: default;
+    user-select: none;
 }
 .mainSection{
     /* background-color: #393478; */
@@ -55,9 +60,9 @@
 }
 @media only screen and (max-width: 1200px){
     .rootDiv{
-        margin-left: 160px;
-        width: 70%;
-        margin-right: 20px;
+        margin: 15%;
+        width: 500px;
+        margin-top: 70px;
     }
     .hideDiv{
         margin-left: 0px;

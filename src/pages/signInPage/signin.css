@@ -52,6 +52,7 @@ body {
 
 .signup-btn {
   color: rgb(255, 255, 255);
+  font-weight: bold;
   width: 100%;
   padding: 10px;
   border-radius: 20px;
@@ -59,6 +60,8 @@ body {
   margin: 10px 0;
   border: none;
   cursor: pointer;
+  user-select: none;
+  transition: .2s;
 }
 
 .signup-btn {
@@ -69,6 +72,8 @@ body {
 }
 .signup-btn:hover {
   background-color: rgb(193, 128, 8);
+  transform: scale(1.2);
+  box-shadow: 2px 2px 10px rgb(157, 156, 156);
 }
 
 @media only screen and (max-width: 600px) {

@@ -38,7 +38,9 @@
   border-top-right-radius: 30px;
   object-fit: cover;
   opacity: 100%;
+  user-select: none;
+  transition: .5s ease;
 }
 .img:hover {
-
+    width: 110%;
 }

@@ -9,6 +9,7 @@
   height: 130px;
   margin-left: 40%;
   margin-right: 40%;
+  user-select: none;
 }
 
 .uploadButton {
@@ -19,6 +20,7 @@
   z-index: 5;
   width: 100px;
   opacity: 0%;
+  user-select: none;
 }
 
 .profileImg {
@@ -28,6 +30,7 @@
   width: 130px;
   height: 130px;
   transition: .3s;
+  user-select: none;
 }
 .profileImg:hover{
     transform: scale(1.1);

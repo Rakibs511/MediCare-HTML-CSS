@@ -13,49 +13,85 @@
   width: 60%;
   height: 90%;
   border-radius: 20px;
-  background-color: #F3F3FF;
+  background-color: #f3f3ff;
   box-shadow: 2px 2px 10px rgb(164, 164, 164);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
-.crossIcon{
-    width: 20px;
-    position: absolute;
-    right: 0;
-    margin-top: 10px;
-    margin-right: 10px;
-    padding: 5px;
-    background-color: #393478;
-    border-radius: 50%;
-    transition: .2s;
-    cursor: pointer;
+.crossIcon {
+  width: 20px;
+  position: absolute;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 5px;
+  background-color: #393478;
+  border-radius: 50%;
+  transition: 0.2s;
+  cursor: pointer;
+  user-select: none;
 }
-.crossIcon:hover{
-    transform: scale(1.2);
+.crossIcon:hover {
+  transform: scale(1.2);
 }
 
-.languageToggle{
-    position: absolute;
-    margin-top: 10px;
-    border: orange;
-    margin-left: 10px;
-    border-width: 2px;
-    border-color: orange;
-    font-size: 16px;
-    padding: 4px 4.5px;
-    /* padding: 10px 11px; */
-    background-color: #393478;
-    color: white;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: .2s;
-    font-weight: bold;
-    color: orange;
-    user-select: none;
+.languageToggle {
+  position: absolute;
+  margin-top: 10px;
+  border: orange;
+  margin-left: 10px;
+  border-width: 2px;
+  border-color: orange;
+  font-size: 16px;
+  padding: 4px 4.5px;
+  /* padding: 10px 11px; */
+  background-color: #393478;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: bold;
+  color: orange;
+  user-select: none;
 }
-.languageToggle:hover{
-    transform: scale(1.2);
+.languageToggle:hover {
+  transform: scale(1.2);
 }
-.profileImg{
-    width: 200px;
+.profileImg {
+  width: 40%;
+  margin: 30%;
+  margin-top: 50px;
+  margin-bottom: 5%;
+  border-radius: 30px;
+  user-select: none;
+  transition: 1s;
+  box-shadow: 1px 1px 10px rgb(189, 189, 189);
+}
+.profileImg:hover {
+  margin-top: 12%;
+  margin-bottom: 15%;
+  position: relative;
+  z-index: 30;
+  transform: scale(1.5);
+  overflow: visible;
+}
+.detailsName {
+  background-color: orange;
+  margin: 10px;
+  color: #393478;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 35px;
+}
+.detailsText {
+  color: #393478;
+  font-size: 30px;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: rgba(255, 166, 0, 0.349);
 }
 
 @media only screen and (max-width: 1200px) {
@@ -67,9 +103,15 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .rootDiv{
-        margin: 5%;
-        margin-top: 30px;
-        width: 90%;
-    }
+  .rootDiv {
+    margin: 5%;
+    margin-top: 30px;
+    width: 90%;
+  }
+  .detailsName {
+    font-size: 15px;
+  }
+  .detailsText {
+    font-size: 15px;
+  }
 }
