@@ -1,4 +1,4 @@
 const dev ={
-    backendUrl:'http://localhost:4000'
+    backendUrl:'https://medicare-backend.herokuapp.com'
 }
 export default dev;

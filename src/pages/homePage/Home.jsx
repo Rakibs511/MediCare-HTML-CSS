@@ -37,7 +37,7 @@ const Home = () => {
   }, [postToggle, profileToggle]);
 
   const { data: allUsers } = useQuery("users", url_All_Users);
-  const { data, isLoading } = useGetMedicines();
+  const { data, isLoading, refetch } = useGetMedicines();
   if (isLoading) {
     return (
       <div className={homeCSS.bubblesLoader}>
@@ -52,9 +52,17 @@ const Home = () => {
       <SideBar />
       {isSideBar && <HideSideBar />}
       {profileToggle && <Profile />}
-      {postToggle && <Post />}
+      {postToggle && (
+        <div onClick={refetch}>
+          <Post />
+        </div>
+      )}
       {myPostToggle && <MyPost />}
-      {ShowMedicineDetails && <MedicineDetails />}
+      {ShowMedicineDetails && (
+        <div onClick={refetch}>
+          <MedicineDetails />
+        </div>
+      )}
       <div className={homeCSS.mainSection}>
         <div className={homeCSS.layout}>
           {searchValue && searchFilterToggle ? (
@@ -77,7 +85,9 @@ const Home = () => {
                   />
                 );
               })
-          ) :searchValue!== null &&searchValue !== "" && searchFilterToggle === false ? (
+          ) : searchValue !== null &&
+            searchValue !== "" &&
+            searchFilterToggle === false ? (
             allUsers.data
               .filter((data) =>
                 data.userName.toLowerCase().includes(searchValue.toLowerCase())

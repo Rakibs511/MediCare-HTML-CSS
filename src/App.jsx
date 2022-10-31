@@ -1,10 +1,10 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home, NotFound, SignIn, SignUp, Protected } from "./pages";
 
 const App = () => {
   return (
-    <Suspense fallback={<div>Loading</div>}>
+    <>
       <BrowserRouter>
         <Routes>
           <Route path="/" exact element={<Protected Pages={Home} />} />
@@ -15,7 +15,7 @@ const App = () => {
           <Route path="*" exact element={<NotFound />} />
         </Routes>
       </BrowserRouter>
-    </Suspense>
+    </>
   );
 };
 

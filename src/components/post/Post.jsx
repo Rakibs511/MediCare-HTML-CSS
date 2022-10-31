@@ -33,6 +33,8 @@ const Post = () => {
         description_bd: desc_BD,
       },
     })
+        dispatch(setPostToggle());
+
     // console.log({
     //   medPicture,
     //   medName_ENG,

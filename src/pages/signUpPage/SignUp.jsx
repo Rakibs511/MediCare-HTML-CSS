@@ -58,7 +58,7 @@ const SignUp = () => {
             navigate("/signin");
           })
           .catch((error) => {
-            toast.error("❌Invalid Phone Number And Password!", {
+            toast.error("❌Invalid Phone Number or Password!", {
               position: "top-center",
               autoClose: 5000,
               hideProgressBar: false,
