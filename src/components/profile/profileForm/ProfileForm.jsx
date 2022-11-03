@@ -6,7 +6,7 @@ import "./profileForm.css";
 import { useProfileData } from "../profileData/profileDataQuery";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-import dev from "../../../config/configer";
+import dev from "../../../config/config";
 import { toast, ToastContainer } from "react-toastify";
 
 const ProfileForm = () => {

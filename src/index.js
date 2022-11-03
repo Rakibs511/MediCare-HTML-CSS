@@ -14,7 +14,7 @@ root.render(
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <App />
-        <ReactQueryDevtools position="bottom-right"/>
+        <ReactQueryDevtools position="bottom-right" />
       </QueryClientProvider>
     </Provider>
   </React.StrictMode>

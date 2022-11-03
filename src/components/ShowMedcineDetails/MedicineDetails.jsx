@@ -4,7 +4,7 @@ import medicineDetailsCss from "./medicineDetails.module.css";
 import { setShowMedicineDetails } from "./medicineDetailsSlice";
 import emptyProfie from "../../assets/icons/emptyProfie.svg";
 import { useQuery } from "react-query";
-import dev from "../../config/configer";
+import dev from "../../config/config";
 import axios from "axios";
 import crossIcon from "../../assets/icons/cross.svg";
 import jwt_decode from "jwt-decode";

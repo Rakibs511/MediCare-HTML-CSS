@@ -6,7 +6,7 @@ import "./post.css";
 import { Uploader } from "uploader";
 import { UploadButton } from "react-uploader";
 import axios from "axios";
-import dev from "../../config/configer";
+import dev from "../../config/config";
 import crossIcon from "../../assets/icons/cross.svg";
 
 const Post = () => {

@@ -36,8 +36,19 @@ const Home = () => {
       : (document.body.style.overflow = "auto");
   }, [postToggle, profileToggle]);
 
-  const { data: allUsers } = useQuery("users", url_All_Users);
+  const { data: allUsers, isLoading: alluserLoading } = useQuery(
+    "users",
+    url_All_Users
+  );
   const { data, isLoading, refetch } = useGetMedicines();
+  if (alluserLoading) {
+    return (
+      <div className={homeCSS.bubblesLoader}>
+        <ReactLoading type={"bubbles"} color={"orange"} width={150} />
+      </div>
+    );
+  }
+  //   console.log(allUsers.data);
   if (isLoading) {
     return (
       <div className={homeCSS.bubblesLoader}>
@@ -85,12 +96,14 @@ const Home = () => {
                   />
                 );
               })
-          ) : searchValue !== null &&
-            searchValue !== "" &&
-            searchFilterToggle === false ? (
+          ) : searchValue && !searchFilterToggle && allUsers.data !== [] ? (
             allUsers.data
-              .filter((data) =>
-                data.userName.toLowerCase().includes(searchValue.toLowerCase())
+              .filter(
+                (data) =>
+                  data.userName &&
+                  data.userName
+                    .toLowerCase()
+                    .includes(searchValue.toLowerCase())
               )
               .map((data) => {
                 return (

@@ -1,7 +1,12 @@
-.dataForm{
-    /* background-color: aqua; */
-    width: 80%;
-    margin: auto;
+.dataForm {
+  /* background-color: aqua; */
+  width: 80%;
+  margin: auto;
+}
+.bubblesLoader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .picture {
@@ -29,13 +34,12 @@
   border: 3px solid orange;
   width: 130px;
   height: 130px;
-  transition: .3s;
+  transition: 0.3s;
   user-select: none;
 }
-.profileImg:hover{
-    transform: scale(1.1);
+.profileImg:hover {
+  transform: scale(1.1);
 }
-
 
 .form-input-box {
   color: orange;

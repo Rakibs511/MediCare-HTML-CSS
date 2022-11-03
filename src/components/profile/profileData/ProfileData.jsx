@@ -2,24 +2,33 @@ import React from "react";
 import emptyProfile from "../../../assets/icons/emptyProfie.svg";
 import "../profileForm/profileForm.css";
 import { useProfileData } from "./profileDataQuery";
-// import { useDispatch,} from "react-redux";
-// import { setUserID } from "../profileSlice";
+import ReactLoading from "react-loading";
+
 
 const ProfileData = () => {
-  //    useDispatch(setUserID(token[1].id));
-
-  const { data, isLoading } = useProfileData();
+const { data, isLoading,isLoadingError} = useProfileData();
 
   if (isLoading) {
-    return <div>Loading</div>;
+    return (
+      <div className="bubblesLoader">
+        <ReactLoading type={"bubbles"} color={"orange"} width={150} />
+      </div>
+    );
   }
+  if (isLoadingError) {
+    return (
+      <div className="bubblesLoader">
+        <ReactLoading type={"bubbles"} color={"orange"} width={150} />
+      </div>
+    );
+  }
+
   return (
     <div>
       <div className="picture">
         <img
           src={
-            data.data.profilePicture?
-            data.data.profilePicture : emptyProfile
+            data.data.profilePicture ? data.data.profilePicture : emptyProfile
           }
           alt="preview"
           className="profileImg"

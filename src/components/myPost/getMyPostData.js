@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useQuery } from "react-query";
-import dev from "../../config/configer";
+import dev from "../../config/config";
 
 export const url = () => {
   return axios({

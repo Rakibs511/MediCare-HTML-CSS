@@ -1,17 +1,21 @@
 import axios from "axios";
 import React from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import Logo from "../../assets/logo.svg";
-import dev from "../../config/configer";
+import dev from "../../config/config";
 import {
   setPassword,
   setPhoneNumber,
   setPhoneError,
   setPasswordError,
 } from "./signUpSlice";
+
+//Todo: ------------> Functional component <---------------------
 const SignUp = () => {
+  const [navigatePage, setnavigatePage] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const phoneNumber = useSelector((state) => state.signUpSlice.phoneNumber);
@@ -35,30 +39,42 @@ const SignUp = () => {
     } else {
       dispatch(setPhoneError(null));
       dispatch(setPasswordError(null));
-      if (passwordError === null && phoneError === null) {
-        axios({
-          method: "post",
-          url: `${dev.backendUrl}/api/v1/signup`,
-          data: {
-            phone: `+88${phoneNumber}`,
-            password: password,
-          },
+    }
+  };
+
+  const onSubmitHandle = (e) => {
+    e.preventDefault();
+    errorHandleSignUpForm();
+    if (passwordError === null && phoneError === null) {
+      axios({
+        method: "post",
+        url: `${dev.backendUrl}/api/v1/signup`,
+        data: {
+          phone: `+88${phoneNumber}`,
+          password: password,
+        },
+      })
+        .then(async () => {
+          await toast.success("✔Sign Up Successful", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+          setnavigatePage(true);
+          //navigate("/signin");
         })
-          .then( async () => {
-            await toast.success("✔Sign Up Successful", {
-              position: "top-center",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            });
-            navigate("/signin");
-          })
-          .catch((error) => {
-            toast.error("❌Invalid Phone Number or Password!", {
+        .catch((error) => {
+          // console.log(error.response.status);
+          toast.error(
+            error.response.status === 409
+              ? "Already Have an account!"
+              : "❌Invalid Phone Number or Password!",
+            {
               position: "top-center",
               autoClose: 5000,
               hideProgressBar: false,
@@ -67,26 +83,27 @@ const SignUp = () => {
               draggable: true,
               progress: undefined,
               theme: "light",
-            });
-            //console.log("Check your number and password");
-          });
-        //   console.log({
-        //       phoneNumber,
-        //       password,
-        //       phoneError,
-        //       passwordError,
-        //       test: "signUp",
-        //     });
-      }
+            }
+          );
+          //console.log("Check your number and password");
+        });
+      //   console.log({
+      //       phoneNumber,
+      //       password,
+      //       phoneError,
+      //       passwordError,
+      //       test: "signUp",
+      //     });
     }
-  };
-
-  const onSubmitHandle = (e) => {
-    e.preventDefault();
-    errorHandleSignUpForm();
   };
   return (
     <div className="form">
+      {navigatePage && <div className="navigateBackground"></div>}
+      {navigatePage && (
+        <div className="navigateToLoginPage">
+          <button onClick={()=>navigate("/signin")} className="signup-btn" style={{width:'165px',margin:'23%',marginTop:'80px'}}>Go To Sign-in Page</button>
+        </div>
+      )}
       <ToastContainer />
       <img src={Logo} alt="MediCare" />
 
@@ -116,7 +133,7 @@ const SignUp = () => {
           <input type="checkbox" required />
           <span>agree to the terms of services</span>
 
-          <button type="button" className="signup-btn" onClick={onSubmitHandle}>
+          <button className="signup-btn" onClick={onSubmitHandle}>
             Submit
           </button>
           <p>

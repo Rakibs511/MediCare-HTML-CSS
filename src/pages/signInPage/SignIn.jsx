@@ -4,11 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Logo from "../../assets/logo.svg";
-import dev from "../../config/configer";
+import dev from "../../config/config";
 import "../signInPage/signin.css";
 
-
 const SignIn = () => {
+  const [disableButton, setDisableButton] = useState(false);
   const navigate = useNavigate();
   const [phoneNumber, setphoneNumber] = useState("");
   const [password, setpassword] = useState("");
@@ -36,7 +36,12 @@ const SignIn = () => {
   const onSubmitHandle = (e) => {
     e.preventDefault();
     errorHandleSignInForm();
-    if (passwordError === null && phoneError === null) {
+    if (
+      passwordError === null &&
+      phoneError === null &&
+      disableButton === false
+    ) {
+      setDisableButton(true);
       axios({
         method: "post",
         url: `${dev.backendUrl}/api/v1/signin`,
@@ -72,7 +77,7 @@ const SignIn = () => {
 
   return (
     <div className="form">
-      <ToastContainer/>
+      <ToastContainer />
       <img src={Logo} alt="MediCare" />
       <div className="sign-up-form">
         <h1> Sign in </h1>
@@ -81,17 +86,26 @@ const SignIn = () => {
             type="Phone"
             className="input-box"
             placeholder="Enter Your Phone Number"
-            onChange={(e) => setphoneNumber(e.target.value)}
+            onChange={(e) => {
+              setphoneNumber(e.target.value);
+              setDisableButton(false);
+            }}
           />
           <div className="error">{phoneError}</div>
           <input
             type="password"
             className="input-box"
             placeholder="Password"
-            onChange={(e) => setpassword(e.target.value)}
+            onChange={(e) => {
+              setpassword(e.target.value);
+              setDisableButton(false);
+            }}
           />
           <div className="error">{passwordError}</div>
-          <button type="button" className="signup-btn" onClick={onSubmitHandle}>
+          <button
+            className={disableButton ? "disable-signup-btn" : "signup-btn"}
+            onClick={onSubmitHandle}
+          >
             Submit
           </button>
           <p>
