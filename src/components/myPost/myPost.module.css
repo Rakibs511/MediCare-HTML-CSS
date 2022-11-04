@@ -35,6 +35,12 @@
     height: 100%;
     background-color: #3934783c;
 }
+.loading{
+    position: fixed;
+    z-index: 50;
+    margin: 20%;
+
+}
 .text{
     background-color:orange;
     border-top-right-radius: 20px;

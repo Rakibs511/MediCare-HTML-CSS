@@ -8,6 +8,8 @@ import dev from "../../config/config";
 import axios from "axios";
 import crossIcon from "../../assets/icons/cross.svg";
 import jwt_decode from "jwt-decode";
+import ReactLoading from "react-loading";
+import { useGetMedicines } from "../../pages/homePage/homeQuery";
 
 const MedicineDetails = () => {
   const dispatch = useDispatch();
@@ -44,13 +46,17 @@ const MedicineDetails = () => {
   };
   const token = localStorage.getItem("authorization").split(" ")[1];
   const userId = jwt_decode(token).id;
-
+  const { refetch } = useGetMedicines();
   const { data: cardOneMedicine, isLoading } = useQuery(
     "oneUser",
     url_get_user
   );
   if (isLoading) {
-    return <div>loading From medicineDetails.jsx page</div>;
+    return (
+      <div className={medicineDetailsCss.baubleLoader}>
+        <ReactLoading type={"bubbles"} color={"orange"} width={150} />
+      </div>
+    );
   }
 
   const medicineDeleteHandle = () => {
@@ -58,9 +64,10 @@ const MedicineDetails = () => {
       method: "Delete",
       url: `${dev.backendUrl}/api/v1/post/delete/${cardOneMedicine.data._id}`,
       headers: { authorization: localStorage.getItem("authorization") },
-    }).then(()=>{
-        console.log("Deleted!");
-        dispatch(setShowMedicineDetails());
+    }).then(() => {
+      console.log("Deleted!");
+      refetch();
+      dispatch(setShowMedicineDetails());
     });
   };
   return (
@@ -122,7 +129,12 @@ const MedicineDetails = () => {
           <button
             onClick={medicineDeleteHandle}
             className="signup-btn"
-            style={{ width: "120px",margin:'40%',marginTop:'20px',marginBottom:'20px' }}
+            style={{
+              width: "120px",
+              margin: "40%",
+              marginTop: "20px",
+              marginBottom: "20px",
+            }}
           >
             Delete
           </button>

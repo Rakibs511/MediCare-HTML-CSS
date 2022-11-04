@@ -5,12 +5,19 @@ import myPostCss from "./myPost.module.css";
 import crossIcon from "../../assets/icons/cross.svg";
 import { useDispatch } from "react-redux";
 import { setMyPostToggle } from "./myPostSlice";
+import ReactLoading from "react-loading";
+
 
 const MyPost = () => {
    const dispatch= useDispatch()
   const { data, isLoading } = useGetMyPost();
   if (isLoading) {
-    return <h1>Loading... from MyPost.jsx page</h1>;
+    return (
+      <div className={myPostCss.loading}>
+        <ReactLoading type={"bubbles"} color={"orange"} width={150} />
+      </div>
+    );
+
   }
   return (
     <>

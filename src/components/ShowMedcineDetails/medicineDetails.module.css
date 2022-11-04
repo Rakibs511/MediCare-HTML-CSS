@@ -35,6 +35,11 @@
   transform: scale(1.2);
 }
 
+.baubleLoader{
+    position: fixed;
+    margin: 3%;
+    z-index: 40;
+}
 .languageToggle {
   position: absolute;
   margin-top: 10px;

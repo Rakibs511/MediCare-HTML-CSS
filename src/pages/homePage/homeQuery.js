@@ -9,6 +9,7 @@ export const url = () => {
     headers: { authorization: localStorage.getItem("authorization") },
   });
 };
+export const useGetMedicines = () => useQuery('medicines',url);
 
 export const url_All_Users= async ()=>{
     const auth =await localStorage.getItem("authorization")
@@ -19,5 +20,4 @@ export const url_All_Users= async ()=>{
     })
 }
 
-export const useGetMedicines = () => useQuery('medicines',url);
 

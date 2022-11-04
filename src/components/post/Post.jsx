@@ -8,6 +8,7 @@ import { UploadButton } from "react-uploader";
 import axios from "axios";
 import dev from "../../config/config";
 import crossIcon from "../../assets/icons/cross.svg";
+import { toast, ToastContainer } from "react-toastify";
 
 const Post = () => {
   const dispatch = useDispatch();
@@ -21,19 +22,32 @@ const Post = () => {
     apiKey: "free",
   });
   const postHandle = () => {
-    axios({
-      method: "post",
-      url: `${dev.backendUrl}/api/v1/post/create`,
-      headers: { authorization: localStorage.getItem("authorization") },
-      data: {
-        picture: medPicture,
-        name_eng: medName_ENG,
-        name_bd: medName_BD,
-        description_eng: desc_ENG,
-        description_bd: desc_BD,
-      },
-    })
-        dispatch(setPostToggle());
+    if (medPicture && medName_ENG && medName_BD && desc_ENG && desc_BD) {
+      axios({
+        method: "post",
+        url: `${dev.backendUrl}/api/v1/post/create`,
+        headers: { authorization: localStorage.getItem("authorization") },
+        data: {
+          picture: medPicture,
+          name_eng: medName_ENG,
+          name_bd: medName_BD,
+          description_eng: desc_ENG,
+          description_bd: desc_BD,
+        },
+      });
+      dispatch(setPostToggle());
+    } else {
+      toast.error("❌Input Box Can't be empty!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    }
 
     // console.log({
     //   medPicture,
@@ -45,6 +59,7 @@ const Post = () => {
   };
   return (
     <>
+      <ToastContainer />
       <div
         className="post_hide_div"
         onClick={() => dispatch(setPostToggle())}
@@ -85,9 +100,13 @@ const Post = () => {
             await setmedicinePicture(files[0].fileUrl);
           }}
         >
-          {({ onClick }) => (
-            medPicture===null&&<button className="Post_Upload_button" onClick={onClick}>Click Here to upload Picture</button>
-          )}
+          {({ onClick }) =>
+            medPicture === null && (
+              <button className="Post_Upload_button" onClick={onClick}>
+                Click Here to upload Picture
+              </button>
+            )
+          }
         </UploadButton>
         <div className="post_input_label_text">Medicine Name</div>
         <input

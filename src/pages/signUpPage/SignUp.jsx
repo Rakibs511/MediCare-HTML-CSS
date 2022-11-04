@@ -54,8 +54,8 @@ const SignUp = () => {
           password: password,
         },
       })
-        .then(async () => {
-          await toast.success("✔Sign Up Successful", {
+        .then(() => {
+          toast.success("✔Sign Up Successful", {
             position: "top-center",
             autoClose: 5000,
             hideProgressBar: false,
@@ -66,7 +66,6 @@ const SignUp = () => {
             theme: "colored",
           });
           setnavigatePage(true);
-          //navigate("/signin");
         })
         .catch((error) => {
           // console.log(error.response.status);
@@ -98,17 +97,28 @@ const SignUp = () => {
   };
   return (
     <div className="form">
+      {localStorage.getItem("authorization") && (
+        <div className="haveAnAccount">
+          <div>You already Sign-up please go to</div>
+          <button onClick={()=>navigate("/")}>Home Page</button>
+        </div>
+      )}
       {navigatePage && <div className="navigateBackground"></div>}
       {navigatePage && (
         <div className="navigateToLoginPage">
-          <button onClick={()=>navigate("/signin")} className="signup-btn" style={{width:'165px',margin:'23%',marginTop:'80px'}}>Go To Sign-in Page</button>
+          <button
+            onClick={() => navigate("/signin")}
+            className="signup-btn"
+            style={{ width: "165px", margin: "23%", marginTop: "80px" }}
+          >
+            Go To Sign-in Page
+          </button>
         </div>
       )}
       <ToastContainer />
       <img src={Logo} alt="MediCare" />
 
       <div className="sign-up-form">
-        <div>{}</div>
         <h1> Sign Up </h1>
         <form>
           <input
