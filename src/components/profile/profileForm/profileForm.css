@@ -45,6 +45,7 @@
   color: orange;
   display: flex;
   border-radius: 20px;
+  font-weight: bold;
   padding: 10px;
   margin: 10px 0px;
   width: 80%;

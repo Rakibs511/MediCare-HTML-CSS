@@ -55,7 +55,7 @@ const SignIn = () => {
           // console.log(res.data.message);
           // console.log(res.data);
           if (res.data.success === true) {
-            navigate("/home");
+            navigate("/");
           }
         })
         .catch((error) => {
